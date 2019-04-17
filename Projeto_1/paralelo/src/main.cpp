@@ -15,7 +15,37 @@
  * user	0m0.730s                                                             *
  * sys	0m0.009s                                                             *
  * ------------------------------------------------------------------------- * 
- *                      ---PARALELO---                                       *
+ *                    ---PARALELO 1 THREAD---                                *
+ *                                                                           *
+ * Rodando o comando: $ g++ main.cpp -o main -fopenmp                        *
+ *                    $ time ./main < ../dataset_iris                        *
+ *                                                                           *
+ * real	m.s                                                                  *
+ * user	m.s                                                                  *
+ * sys	m.s                                                                  *
+ *                                                                           *
+ * ------------------------------------------------------------------------- * 
+ *                   ---PARALELO 2 THREADS---                                *
+ *                                                                           *
+ * Rodando o comando: $ g++ main.cpp -o main -fopenmp                        *
+ *                    $ time ./main < ../dataset_iris                        *
+ *                                                                           *
+ * real	m.s                                                                  *
+ * user	m.s                                                                  *
+ * sys	m.s                                                                  *
+ *                                                                           *
+ * ------------------------------------------------------------------------- * 
+ *                   ---PARALELO 4 THREADS---                                *
+ *                                                                           *
+ * Rodando o comando: $ g++ main.cpp -o main -fopenmp                        *
+ *                    $ time ./main < ../dataset_iris                        *
+ *                                                                           *
+ * real	m.s                                                                  *
+ * user	m.s                                                                  *
+ * sys	m.s                                                                  *
+ *                                                                           *
+ * ------------------------------------------------------------------------- * 
+ *                   ---PARALELO 8 THREADS---                                *
  *                                                                           *
  * Rodando o comando: $ g++ main.cpp -o main -fopenmp                        *
  *                    $ time ./main < ../dataset_iris                        *
@@ -26,9 +56,13 @@
  * _________________________________________________________________________ *
  *                        ---SPEEDUP---                                      *
  *                                                                           *
- *                 (/) =                                                     *
+ * 1 THREAD:  (5,731/) =                                                     *
+ * 2 THREADS: (5,731/) =                                                     *
+ * 4 THREADS: (5,731/) =                                                     *
+ * 8 THREADS: (5,731/) =                                                     *
  *                                                                           *
- * _________________________________________________________________________ *
+ *                                                                           *
+ * ========================================================================= *
  *                      SERVIDOR PARCODE                                     *
  *                                                                           *
  *                      ---SEQUENCIAL---                                     *
@@ -40,7 +74,37 @@
  * user	0m1.305s                                                             *
  * sys	0m0.000s                                                             *
  * ------------------------------------------------------------------------- * 
- *                      ---PARALELO---                                       *
+ *                    ---PARALELO 1 THREAD---                                *
+ *                                                                           *
+ * Rodando o comando: $ g++ main.cpp -o main -fopenmp                        *
+ *                    $ time ./main < ../dataset_iris                        *
+ *                                                                           *
+ * real	m.s                                                                  *
+ * user	m.s                                                                  *
+ * sys	m.s                                                                  *
+ *                                                                           *
+ * ------------------------------------------------------------------------- * 
+ *                   ---PARALELO 2 THREADS---                                *
+ *                                                                           *
+ * Rodando o comando: $ g++ main.cpp -o main -fopenmp                        *
+ *                    $ time ./main < ../dataset_iris                        *
+ *                                                                           *
+ * real	m.s                                                                  *
+ * user	m.s                                                                  *
+ * sys	m.s                                                                  *
+ *                                                                           *
+ * ------------------------------------------------------------------------- * 
+ *                   ---PARALELO 4 THREADS---                                *
+ *                                                                           *
+ * Rodando o comando: $ g++ main.cpp -o main -fopenmp                        *
+ *                    $ time ./main < ../dataset_iris                        *
+ *                                                                           *
+ * real	m.s                                                                  *
+ * user	m.s                                                                  *
+ * sys	m.s                                                                  *
+ *                                                                           *
+ * ------------------------------------------------------------------------- * 
+ *                   ---PARALELO 8 THREADS---                                *
  *                                                                           *
  * Rodando o comando: $ g++ main.cpp -o main -fopenmp                        *
  *                    $ time ./main < ../dataset_iris                        *
@@ -51,7 +115,10 @@
  * _________________________________________________________________________ *
  *                        ---SPEEDUP---                                      *
  *                                                                           *
- *                 (/) =                                                     *
+ * 1 THREAD:  (1,312/) =                                                     *
+ * 2 THREADS: (1,312/) =                                                     *
+ * 4 THREADS: (1,312/) =                                                     *
+ * 8 THREADS: (1,312/) =                                                     *
  *                                                                           *
  *****************************************************************************/
 
