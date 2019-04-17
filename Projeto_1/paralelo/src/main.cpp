@@ -11,9 +11,9 @@
  *                                                                           *
  * Rodando o comando: $ g++ main.cpp -o main                                 *
  *                    $ time ./main                                          *
- * real	m.s                                                                  *
- * user	m.s                                                                  *
- * sys	m.s                                                                  *
+ * real	0m5.731s                                                             *
+ * user	0m0.730s                                                             *
+ * sys	0m0.009s                                                             *
  * ------------------------------------------------------------------------- * 
  *                      ---PARALELO---                                       *
  *                                                                           *
@@ -104,7 +104,7 @@ int main(int argc, char *argv[])
 	fscanf(arq, "%d %lf %lf %lf", &max_epocas, &erro_min, &taxa_aprendizagem, &taxa_reducao_aprendizado);
 	FuncaoAtivacao * funcao_ativacao = NULL;
 
-	// verifica a fun��o de ativacao
+	// verifica a funcao de ativacao
 	if(strcmp(str_funcao_ativacao, "hiperbolica") == 0)
 		funcao_ativacao = new FuncaoTanHiperbolica(2);
 	else if(strcmp(str_funcao_ativacao, "linear") == 0)
@@ -133,7 +133,7 @@ int main(int argc, char *argv[])
 
 		amostras.push_back(amostra_entradas);
 
-		// ler a sa�da
+		// ler a saida
 		for(int j = 0; j < neuronios_saida; j++)
 		{
 			fscanf(arq, "%lf", &valor);
@@ -143,7 +143,7 @@ int main(int argc, char *argv[])
 		saidas.push_back(amostra_saidas);
 	}
 	
-	// vetor de �ndices para embaralhar as entradas
+	// vetor de indices para embaralhar as entradas
 	std::vector<int> vet_indices;
 	for(int i = 0; i < qte_amostras + qte_teste; i++)
 		vet_indices.push_back(i);
