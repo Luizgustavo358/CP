@@ -9,24 +9,24 @@
 
 class MLP
 {
-private:
-	std::vector<Camada*> camadas;
-	std::vector<SinalEntrada*> entradas;
-	double taxa_aprendizado, taxa_reducao_aprendizado, erro_min;
-	int num_camadas_escondidas, max_epocas;
-	int qte_amostras, qte_teste;
-	int num_entradas, neuronios_saida;
-	FuncaoAtivacao * funcao_ativacao;
-public:
+	private:
+		std::vector<Camada*> camadas;
+		std::vector<SinalEntrada*> entradas;
+		double taxa_aprendizado, taxa_reducao_aprendizado, erro_min;
+		int num_camadas_escondidas, max_epocas;
+		int qte_amostras, qte_teste;
+		int num_entradas, neuronios_saida;
+		FuncaoAtivacao * funcao_ativacao;
 
-	MLP(int qte_amostras, int qte_teste, int num_entradas,
-		int num_camadas_escondidas, int neuronios_saida,
-		double taxa_aprendizagem, double taxa_reducao_aprendizado, int max_epocas, double erro_min,
-		FuncaoAtivacao * funcao_ativacao, std::vector<int>& neuronios_camadas_escondidas);
-	~MLP();
-	void adicionarCamada(Camada* camada);
-	void treinar(std::vector<std::vector<double> >& amostras, std::vector<std::vector<double> >& saidas);
-	double erroQuadraticoMedio(std::vector<std::vector<double> >& saidas);
+	public:
+		MLP(int qte_amostras, int qte_teste, int num_entradas,
+			int num_camadas_escondidas, int neuronios_saida,
+			double taxa_aprendizagem, double taxa_reducao_aprendizado, int max_epocas, double erro_min,
+			FuncaoAtivacao * funcao_ativacao, std::vector<int>& neuronios_camadas_escondidas);
+		~MLP();
+		void adicionarCamada(Camada* camada);
+		void treinar(std::vector<std::vector<double> >& amostras, std::vector<std::vector<double> >& saidas);
+		double erroQuadraticoMedio(std::vector<std::vector<double> >& saidas);
 };
 
 MLP::MLP(int qte_amostras, int qte_teste, int num_entradas,
@@ -34,7 +34,7 @@ MLP::MLP(int qte_amostras, int qte_teste, int num_entradas,
 		 double taxa_aprendizagem, double taxa_reducao_aprendizado, int max_epocas, double erro_min,
 		 FuncaoAtivacao * funcao_ativacao, std::vector<int>& neuronios_camadas_escondidas)
 {
-	// atribui��o de vari�veis
+	// atribuicao de variaveis
 	this->taxa_aprendizado = taxa_aprendizagem;
 	this->taxa_reducao_aprendizado = taxa_reducao_aprendizado;
 	this->num_camadas_escondidas = num_camadas_escondidas;
@@ -46,10 +46,10 @@ MLP::MLP(int qte_amostras, int qte_teste, int num_entradas,
 	this->neuronios_saida = neuronios_saida;
 	this->funcao_ativacao = funcao_ativacao;
 
-	// nessa parte � feita o forward: propagar as entradas
+	// nessa parte e' feita o forward: propagar as entradas
 
 	// adiciona sinal de entrada -1 em cada entrada
-	// o <= � por causa do limiar de ativa��o
+	// o <= e' por causa do limiar de ativacao
 	for(int i = 0; i <= num_entradas; i++)
 	{
 		SinalEntrada * sinal_entrada = new SinalEntrada(-1);
@@ -69,7 +69,7 @@ MLP::MLP(int qte_amostras, int qte_teste, int num_entradas,
 
 	adicionarCamada(camada_entrada); // adiciona a camada de entrada
 
-	// cria as camadas escondidas e faz as conex�es
+	// cria as camadas escondidas e faz as conexoes
 	for(int k = 0; k < num_camadas_escondidas; k++)
 	{
 		Camada * camada_escondida = new Camada();
@@ -179,7 +179,7 @@ void MLP::treinar(std::vector<std::vector<double> >& amostras, std::vector<std::
 				}
 			}
 
-			// faz o backpropagation das outras camadas (exceto a da sa�da)
+			// faz o backpropagation das outras camadas (exceto a da saida)
 			for(int t = camadas.size() - 2; t >= 0; t--)
 			{
 				Camada* camada = camadas[t];

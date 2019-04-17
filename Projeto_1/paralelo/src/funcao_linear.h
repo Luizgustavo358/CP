@@ -4,9 +4,9 @@
 
 class FuncaoLinear: public FuncaoAtivacao
 {
-public:
-	double rodar(double x);
-	double derivada(double u);
+	public:
+		double rodar(double x);
+		double derivada(double u);
 };
 
 double FuncaoLinear::rodar(double u)

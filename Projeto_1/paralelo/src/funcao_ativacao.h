@@ -3,11 +3,11 @@
 
 class FuncaoAtivacao
 {
-private:
-	
-public:
-	virtual double rodar(double u) = 0;
-	virtual double derivada(double u) = 0;
+	private:
+		
+	public:
+		virtual double rodar(double u) = 0;
+		virtual double derivada(double u) = 0;
 };
 
 #endif

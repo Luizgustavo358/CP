@@ -6,13 +6,13 @@
 
 class Camada
 {
-private:
-	std::vector<Neuronio*> neuronios;
-public:
-	~Camada();
-	void receberNeuronio(Neuronio * neuronio);
-	Neuronio* get(int j);
-	unsigned int getQuantidadeNeuronios();
+	private:
+		std::vector<Neuronio*> neuronios;
+	public:
+		~Camada();
+		void receberNeuronio(Neuronio * neuronio);
+		Neuronio* get(int j);
+		unsigned int getQuantidadeNeuronios();
 };
 
 Camada::~Camada()

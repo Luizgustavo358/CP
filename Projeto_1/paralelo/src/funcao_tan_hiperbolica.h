@@ -5,12 +5,12 @@
 
 class FuncaoTanHiperbolica: public FuncaoAtivacao
 {
-private:
-	double beta;
-public:
-	FuncaoTanHiperbolica(double beta);
-	double rodar(double x);
-	double derivada(double u);
+	private:
+		double beta;
+	public:
+		FuncaoTanHiperbolica(double beta);
+		double rodar(double x);
+		double derivada(double u);
 };
 
 FuncaoTanHiperbolica::FuncaoTanHiperbolica(double beta)

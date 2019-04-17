@@ -3,9 +3,9 @@
 
 class Entrada
 {
-public:
-	virtual double gerarSaida() = 0;
-	virtual void invalidaCalculo() = 0;
+	public:
+		virtual double gerarSaida() = 0;
+		virtual void invalidaCalculo() = 0;
 };
 
 #endif

@@ -7,25 +7,25 @@
 
 class Neuronio: public Entrada
 {
-private:
-	std::vector<std::pair<Entrada*, double> > entradas; // vetor (entrada,peso)
-	FuncaoAtivacao * funcao_ativacao;
-	double sigma;
-	double saida;
-	bool calculado;
-public:
-	Neuronio(FuncaoAtivacao * funcao_ativacao);
-	void receberEntrada(Entrada * e, double peso);
-	double gerarSaida();
-	double getSomatorio();
-	FuncaoAtivacao* getFuncaoAtivacao();
-	void setPeso(int indice_entrada, double peso);
-	double getPeso(int indice_entrada);
-	unsigned int getQuantidadeEntradas();
-	Entrada* getEntrada(int indice_entrada);
-	void setSigma(double sigma);
-	double getSigma();
-	void invalidaCalculo();
+	private:
+		std::vector<std::pair<Entrada*, double> > entradas; // vetor (entrada,peso)
+		FuncaoAtivacao * funcao_ativacao;
+		double sigma;
+		double saida;
+		bool calculado;
+	public:
+		Neuronio(FuncaoAtivacao * funcao_ativacao);
+		void receberEntrada(Entrada * e, double peso);
+		double gerarSaida();
+		double getSomatorio();
+		FuncaoAtivacao* getFuncaoAtivacao();
+		void setPeso(int indice_entrada, double peso);
+		double getPeso(int indice_entrada);
+		unsigned int getQuantidadeEntradas();
+		Entrada* getEntrada(int indice_entrada);
+		void setSigma(double sigma);
+		double getSigma();
+		void invalidaCalculo();
 };
 
 Neuronio::Neuronio(FuncaoAtivacao * funcao_ativacao)
