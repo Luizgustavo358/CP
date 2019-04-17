@@ -10,7 +10,7 @@
  *                      ---SEQUENCIAL---                                     *
  *                                                                           *
  * Rodando o comando: $ g++ main.cpp -o main                                 *
- *                    $ time ./main                                          *
+ *                    $ time ./main < ../dataset_iris                        *
  * real	0m5.731s                                                             *
  * user	0m0.730s                                                             *
  * sys	0m0.009s                                                             *
@@ -18,7 +18,7 @@
  *                      ---PARALELO---                                       *
  *                                                                           *
  * Rodando o comando: $ g++ main.cpp -o main -fopenmp                        *
- *                    $ time ./main                                          *
+ *                    $ time ./main < ../dataset_iris                        *
  *                                                                           *
  * real	m.s                                                                  *
  * user	m.s                                                                  *
@@ -34,16 +34,16 @@
  *                      ---SEQUENCIAL---                                     *
  *                                                                           *
  * Rodando o comando: $ g++ main.cpp -o main                                 *
- *                    $ time ./main                                          *
+ *                    $ time ./main < ../dataset_iris                        *
  *                                                                           *
- * real	m.s                                                                  *
- * user	m.s                                                                  *
- * sys	m.s                                                                  *
+ * real	0m1.312s                                                             *
+ * user	0m1.305s                                                             *
+ * sys	0m0.000s                                                             *
  * ------------------------------------------------------------------------- * 
  *                      ---PARALELO---                                       *
  *                                                                           *
  * Rodando o comando: $ g++ main.cpp -o main -fopenmp                        *
- *                    $ time ./main                                          *
+ *                    $ time ./main < ../dataset_iris                        *
  *                                                                           *
  * real	m.s                                                                  *
  * user	m.s                                                                  *
@@ -51,7 +51,7 @@
  * _________________________________________________________________________ *
  *                        ---SPEEDUP---                                      *
  *                                                                           *
- *                 (/) =                                   *
+ *                 (/) =                                                     *
  *                                                                           *
  *****************************************************************************/
 

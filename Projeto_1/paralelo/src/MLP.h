@@ -1,6 +1,7 @@
 #ifndef _MLP_H_
 #define _MLP_H_
 
+#include <omp.h>
 #include <vector>
 #include <math.h>
 #include "camada.h"
@@ -33,7 +34,7 @@ MLP::MLP(int qte_amostras, int qte_teste, int num_entradas,
 		 double taxa_aprendizagem, double taxa_reducao_aprendizado, int max_epocas, double erro_min,
 		 FuncaoAtivacao * funcao_ativacao, std::vector<int>& neuronios_camadas_escondidas)
 {
-	// atribuição de variáveis
+	// atribuiï¿½ï¿½o de variï¿½veis
 	this->taxa_aprendizado = taxa_aprendizagem;
 	this->taxa_reducao_aprendizado = taxa_reducao_aprendizado;
 	this->num_camadas_escondidas = num_camadas_escondidas;
@@ -45,10 +46,10 @@ MLP::MLP(int qte_amostras, int qte_teste, int num_entradas,
 	this->neuronios_saida = neuronios_saida;
 	this->funcao_ativacao = funcao_ativacao;
 
-	// nessa parte é feita o forward: propagar as entradas
+	// nessa parte ï¿½ feita o forward: propagar as entradas
 
 	// adiciona sinal de entrada -1 em cada entrada
-	// o <= é por causa do limiar de ativação
+	// o <= ï¿½ por causa do limiar de ativaï¿½ï¿½o
 	for(int i = 0; i <= num_entradas; i++)
 	{
 		SinalEntrada * sinal_entrada = new SinalEntrada(-1);
@@ -68,7 +69,7 @@ MLP::MLP(int qte_amostras, int qte_teste, int num_entradas,
 
 	adicionarCamada(camada_entrada); // adiciona a camada de entrada
 
-	// cria as camadas escondidas e faz as conexões
+	// cria as camadas escondidas e faz as conexï¿½es
 	for(int k = 0; k < num_camadas_escondidas; k++)
 	{
 		Camada * camada_escondida = new Camada();
@@ -99,7 +100,7 @@ MLP::MLP(int qte_amostras, int qte_teste, int num_entradas,
 		camada_saida->receberNeuronio(neuronio);
 	}
 
-	adicionarCamada(camada_saida); // adiciona a camada de saída
+	adicionarCamada(camada_saida); // adiciona a camada de saï¿½da
 }
 
 MLP::~MLP()
@@ -178,7 +179,7 @@ void MLP::treinar(std::vector<std::vector<double> >& amostras, std::vector<std::
 				}
 			}
 
-			// faz o backpropagation das outras camadas (exceto a da saída)
+			// faz o backpropagation das outras camadas (exceto a da saï¿½da)
 			for(int t = camadas.size() - 2; t >= 0; t--)
 			{
 				Camada* camada = camadas[t];
