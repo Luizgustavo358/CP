@@ -422,6 +422,9 @@ class KMeans
 
 int main(int argc, char *argv[])
 {
+	// setando a quantidade de threads
+	omp_set_num_threads(1);
+
 	srand (time(NULL));
 
 	int total_points, total_values, K, max_iterations, has_name;
