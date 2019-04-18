@@ -459,7 +459,7 @@ int main(int argc, char *argv[])
 	kmeans.run(points);
 
 	// mostrando
-	kmeans.show(points);
+	// kmeans.show(points);
 
 	return 0;
 }

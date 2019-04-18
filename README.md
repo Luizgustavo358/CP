@@ -22,4 +22,4 @@ Luís Fabrício Wanderley Góes
 ___________________________________________________________
 
 ### Códigos Usados para Paralelizar:
-- [Perceptron](https://github.com/marcoscastro/mlp)
+- [K-Means](https://github.com/marcoscastro/kmeans)
