@@ -457,6 +457,9 @@ int main(int argc, char *argv[])
 
 	KMeans kmeans(K, total_points, total_values, max_iterations);
 	kmeans.run(points);
+
+	// mostrando
 	kmeans.show(points);
+
 	return 0;
 }

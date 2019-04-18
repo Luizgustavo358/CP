@@ -4,23 +4,23 @@ O KMeans é um algoritmo que é utilizado para calcular centroides de alguns clu
 
 ### Como Compilar:
 
-    - Sequencial:
+- Sequencial:
 
-    ```sh
-    $ gcc kmeans.cpp -o kmeans
-    ```
+```sh
+$ gcc kmeans.cpp -o kmeans
+```
 
-    - Paralelo:
+- Paralelo:
 
-    ```sh
-    $ gcc kmeans.cpp -o kmeans -fopenmp
-    ```
+```sh
+$ gcc kmeans.cpp -o kmeans -fopenmp
+```
 
 ### Como Rodar o Código:
 
-    ```sh
-    $ time ./kmeans < datasets/pub.in
-    ```
+```sh
+$ time ./kmeans < datasets/pub.in
+```
     
 ________________________________________________________________________________
 Referência: https://github.com/marcoscastro/kmeans
