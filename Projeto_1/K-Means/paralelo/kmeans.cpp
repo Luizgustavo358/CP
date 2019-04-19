@@ -276,6 +276,7 @@ class KMeans
 				double dist;
 				sum = 0.0;
 
+				#pragma omp parallel for private(i)
 				for(int j = 0; j < total_values; j++)
 				{
 					sum += pow(clusters[i].getCentralValue(j) -
@@ -463,7 +464,7 @@ int main(int argc, char *argv[])
 	kmeans.run(points);
 
 	// mostrando
-	// kmeans.show(points);
+	kmeans.show(points);
 
 	return 0;
 }
