@@ -70,9 +70,9 @@
  * Rodando o comando: $ g++ kmeans.cpp -o main                               *
  *                    $ time ./kmeans < /datasets/pub.in                     *
  *                                                                           *
- * real	m.s                                                                  *
- * user	m.s                                                                  *
- * sys	m.s                                                                  *
+ * real	0m46.779s                                                            *
+ * user	0m46.713s                                                            *
+ * sys	0m0.028s                                                             *
  * ------------------------------------------------------------------------- * 
  *                    ---PARALELO 1 THREAD---                                *
  *                                                                           *
@@ -115,7 +115,7 @@
  * _________________________________________________________________________ *
  *                        ---SPEEDUP---                                      *
  *                                                                           *
- * 1 THREAD:  (/) =                                                          *
+ * 1 THREAD:  (46,779/) =                                                    *
  * 2 THREADS: (/) =                                                          *
  * 4 THREADS: (/) =                                                          *
  * 8 THREADS: (/) =                                                          *
