@@ -265,8 +265,7 @@ class KMeans
 
 			for(int i = 0; i < total_values; i++)
 			{
-				sum += pow(clusters[0].getCentralValue(i) -
-						   point.getValue(i), 2.0);
+				sum += pow(clusters[0].getCentralValue(i) - point.getValue(i), 2.0);
 			}
 
 			min_dist = sqrt(sum);
@@ -276,11 +275,9 @@ class KMeans
 				double dist;
 				sum = 0.0;
 
-				#pragma omp parallel for private(i)
 				for(int j = 0; j < total_values; j++)
 				{
-					sum += pow(clusters[i].getCentralValue(j) -
-							   point.getValue(j), 2.0);
+					sum += pow(clusters[i].getCentralValue(j) - point.getValue(j), 2.0);
 				}
 
 				dist = sqrt(sum);
@@ -338,7 +335,7 @@ class KMeans
 
 				// associates each point to the nearest center
 				// regiao paralelizada que demora mais tempo
-				#pragma omp parallel for schedule(guided, 1000) num_threads(8)
+				#pragma omp parallel for schedule(guided, 1500) num_threads(4)
 				for(int i = 0; i < total_points; i++)
 				{
 					int id_old_cluster = points[i].getCluster();
@@ -361,7 +358,7 @@ class KMeans
 
 				// recalculating the center of each cluster
 				// reagiao paralelizada que auxilia o cauculo dos centroides dos clusters
-				#pragma omp parallel for num_threads(8)
+				#pragma omp parallel for num_threads(4)
 				for(int i = 0; i < K; i++)
 				{
 					for(int j = 0; j < total_values; j++)
@@ -372,7 +369,7 @@ class KMeans
 						if(total_points_cluster > 0)
 						{
 							// regiao paralela que acrescenta um ponto ao cluster
-							#pragma omp parallel for reduction(+:sum) num_threads(8)
+							#pragma omp parallel for reduction(+:sum) num_threads(4)
 							for(int p = 0; p < total_points_cluster; p++)
 								sum += clusters[i].getPoint(p).getValue(j);
 							clusters[i].setCentralValue(j, sum / total_points_cluster);
