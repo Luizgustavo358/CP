@@ -65,52 +65,52 @@
  * Rodando o comando: $ g++ kmeans.cpp -o main                               *
  *                    $ time ./kmeans < /datasets/pub.in                     *
  *                                                                           *
- * real	0m46.779s                                                            *
- * user	0m46.713s                                                            *
- * sys	0m0.028s                                                             *
+ * real	0m34.111s                                                            *
+ * user	0m34.066s                                                            *
+ * sys	0m0.024s                                                             *
  * ------------------------------------------------------------------------- * 
  *                    ---PARALELO 1 THREAD---                                *
  *                                                                           *
  * Rodando o comando: $ g++ kmeans.cpp -o main -fopenmp                      *
  *                    $ time ./kmeans < /datasets/pub.in                     *
  *                                                                           *
- * real	m.s                                                                  *
- * user	m.s                                                                  *
- * sys	m.s                                                                  *
+ * real	0m26.465s                                                            *
+ * user	1m34.582s                                                            *
+ * sys	0m4.021s                                                             *
  * ------------------------------------------------------------------------- * 
  *                   ---PARALELO 2 THREADS---                                *
  *                                                                           *
  * Rodando o comando: $ g++ kmeans.cpp -o main -fopenmp                      *
  *                    $ time ./kmeans < /datasets/pub.in                     *
  *                                                                           *
- * real	m.s                                                                  *
- * user	m.s                                                                  *
- * sys	m.s                                                                  *
+ * real	0m29.345s                                                            *
+ * user	0m54.779s                                                            *
+ * sys	0m2.547s                                                             *
  * ------------------------------------------------------------------------- * 
  *                   ---PARALELO 4 THREADS---                                *
  *                                                                           *
  * Rodando o comando: $ g++ kmeans.cpp -o main -fopenmp                      *
  *                    $ time ./kmeans < /datasets/pub.in                     *
  *                                                                           *
- * real	m.s                                                                  *
- * user	m.s                                                                  *
- * sys	m.s                                                                  *
+ * real	0m21.784s                                                            *
+ * user	1m18.332s                                                            *
+ * sys	0m2.709s                                                             *
  * ------------------------------------------------------------------------- * 
  *                   ---PARALELO 8 THREADS---                                *
  *                                                                           *
  * Rodando o comando: $ g++ kmeans.cpp -o main -fopenmp                      *
  *                    $ time ./kmeans < /datasets/pub.in                     *
  *                                                                           *
- * real	m.s                                                                  *
- * user	m.s                                                                  *
- * sys	m.s                                                                  *
+ * real	0m37.393s                                                            *
+ * user	0m53.031s                                                            *
+ * sys	0m6.275s                                                             *
  * _________________________________________________________________________ *
  *                        ---SPEEDUP---                                      *
  *                                                                           *
- * 1 THREAD:  (46,779/) =                                                    *
- * 2 THREADS: (/) =                                                          *
- * 4 THREADS: (/) =                                                          *
- * 8 THREADS: (/) =                                                          *
+ * 1 THREAD:  (34,111/26,465) = 1,289                                        *
+ * 2 THREADS: (34,111/29.345) = 1,162                                        *
+ * 4 THREADS: (34,111/21,784) = 1,565                                        *
+ * 8 THREADS: (34,111/37,393) = 0,912                                        *
  *****************************************************************************/
 
 
