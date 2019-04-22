@@ -20,43 +20,43 @@
  * Rodando o comando: $ g++ kmeans.cpp -o main -fopenmp                      *
  *                    $ time ./kmeans < /datasets/pub.in                     *
  *                                                                           *
- * real	0m17.509s                                                            *
- * user	0m17.495s                                                            *
- * sys	0m0.016s                                                             *
+ * real	0m25.807s                                                            *
+ * user	1m31.609s                                                            *
+ * sys	0m3.120s                                                             *
  * ------------------------------------------------------------------------- * 
  *                   ---PARALELO 2 THREADS---                                *
  *                                                                           *
  * Rodando o comando: $ g++ kmeans.cpp -o main -fopenmp                      *
  *                    $ time ./kmeans < /datasets/pub.in                     *
  *                                                                           *
- * real	0m30.387s                                                            *
- * user	0m56.170s                                                            *
- * sys	0m0.282s                                                             *
+ * real	0m20.995s                                                            *
+ * user	0m38.681s                                                            *
+ * sys	0m2.623s                                                             *
  * ------------------------------------------------------------------------- * 
  *                   ---PARALELO 4 THREADS---                                *
  *                                                                           *
  * Rodando o comando: $ g++ kmeans.cpp -o main -fopenmp                      *
  *                    $ time ./kmeans < /datasets/pub.in                     *
  *                                                                           *
- * real    0m14.242s
- * user    0m59.432s
- * sys     0m1.980s                                                             *
+ * real    0m14.242s                                                         *
+ * user    0m59.432s                                                         *
+ * sys     0m1.980s                                                          *
  * ------------------------------------------------------------------------- * 
  *                   ---PARALELO 8 THREADS---                                *
  *                                                                           *
  * Rodando o comando: $ g++ kmeans.cpp -o main -fopenmp                      *
  *                    $ time ./kmeans < /datasets/pub.in                     *
  *                                                                           *
- * real	0m28.325s                                                            *
- * user	0m44.501s                                                            *
- * sys	0m1.539s                                                             *
+ * real	0m21.881s                                                            *
+ * user	0m40.146s                                                            *
+ * sys	0m3.948s                                                             *
  * _________________________________________________________________________ *
  *                        ---SPEEDUP---                                      *
  *                                                                           *
- * 1 THREAD:  (29,518/) =                                                    *
- * 2 THREADS: (29,518/) =                                                          *
+ * 1 THREAD:  (29,518/25,807) = 1,144                                        *
+ * 2 THREADS: (29,518/20,995) = 1,406                                        *
  * 4 THREADS: (29,518/14,242) = 2,072                                        *
- * 8 THREADS: (29,518/) =                                                          *
+ * 8 THREADS: (29,518/21,881) = 1,349                                        *
  * ========================================================================= *
  *                      SERVIDOR PARCODE                                     *
  *                                                                           *
@@ -263,7 +263,7 @@ class KMeans
 			double sum = 0.0, min_dist;
 			int id_cluster_center = 0;
 
-			#pragma omp parallel for reduction(+:sum) num_threads(4)
+			#pragma omp parallel for reduction(+:sum)
 			for(int i = 0; i < total_values; i++)
 			{
 				sum += pow(clusters[0].getCentralValue(i) - point.getValue(i), 2.0);
@@ -336,7 +336,7 @@ class KMeans
 
 				// associates each point to the nearest center
 				// regiao paralelizada que demora mais tempo
-				#pragma omp parallel for schedule(static, 1500) num_threads(4)
+				#pragma omp parallel for schedule(static, 1500) num_threads(8)
 				for(int i = 0; i < total_points; i++)
 				{
 					int id_old_cluster = points[i].getCluster();
@@ -359,7 +359,7 @@ class KMeans
 
 				// recalculating the center of each cluster
 				// reagiao paralelizada que auxilia o cauculo dos centroides dos clusters
-				#pragma omp parallel for num_threads(4)
+				#pragma omp parallel for num_threads(8)
 				for(int i = 0; i < K; i++)
 				{
 					for(int j = 0; j < total_values; j++)
@@ -370,7 +370,7 @@ class KMeans
 						if(total_points_cluster > 0)
 						{
 							// regiao paralela que acrescenta um ponto ao cluster
-							#pragma omp parallel for reduction(+:sum) num_threads(4)
+							#pragma omp parallel for reduction(+:sum) num_threads(8)
 							for(int p = 0; p < total_points_cluster; p++)
 								sum += clusters[i].getPoint(p).getValue(j);
 							clusters[i].setCentralValue(j, sum / total_points_cluster);
@@ -423,9 +423,6 @@ class KMeans
 int main(int argc, char *argv[])
 {
 	srand (time(NULL));
-
-	// // setando a quantidade de threads
-	// omp_set_num_threads(8); // isso nao ta diminuindo o tempo =/
 
 	int total_points, total_values, K, max_iterations, has_name;
 

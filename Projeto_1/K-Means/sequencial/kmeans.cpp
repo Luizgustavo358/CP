@@ -343,6 +343,6 @@ int main(int argc, char *argv[])
 
 	// mostrando
 	//kmeans.show(points);
-
+	
 	return 0;
 }
